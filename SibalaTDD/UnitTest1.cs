@@ -17,6 +17,16 @@ namespace SibalaTDD
             OutputShouldBe("same color");
         }
 
+        [TestMethod]
+        public void noPoints_2563()
+        {
+            _dice = new Dice(new int[] { 2, 5, 6, 3 });
+            PointsShouldBe(0);
+            MaxPointShouldBe(0);
+            TypeShouldBe(DiceType.NoPoints);
+            OutputShouldBe("no points");
+        }
+
         private void OutputShouldBe(string expected)
         {
             Assert.AreEqual(expected, _dice.Output);
