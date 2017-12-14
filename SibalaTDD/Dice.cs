@@ -19,8 +19,13 @@ namespace SibalaTDD
 
         private void InitializeByStates()
         {
-            this._points = 2;
-            this._maxPoint = 2;
+            SetResultWhenSameColor();
+        }
+
+        private void SetResultWhenSameColor()
+        {
+            this._points = _dices.First();
+            this._maxPoint = _dices.First();
             this._diceType = DiceType.SameColor;
             this._output = "same color";
         }
