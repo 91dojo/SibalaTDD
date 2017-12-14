@@ -37,6 +37,16 @@ namespace SibalaTDD
             OutputShouldBe("no points");
         }
 
+        [TestMethod]
+        public void normalPoints_5542_1pair()
+        {
+            _dice = new Dice(new int[] { 5, 5, 4, 2 });
+            PointsShouldBe(6);
+            MaxPointShouldBe(4);
+            TypeShouldBe(DiceType.NormalPoints);
+            OutputShouldBe("6 points");
+        }
+
         private void OutputShouldBe(string expected)
         {
             Assert.AreEqual(expected, _dice.Output);

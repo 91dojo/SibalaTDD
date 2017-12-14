@@ -3,6 +3,7 @@
     public enum DiceType
     {
         SameColor,
-        NoPoints
+        NoPoints,
+        NormalPoints
     }
 }
