@@ -6,7 +6,7 @@ namespace SibalaTDD
     {
         public int Compare(Dice x, Dice y)
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
     }
 }
