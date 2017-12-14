@@ -55,6 +55,7 @@
     <Compile Include="IDiceHandler.cs" />
     <Compile Include="NoPointsHandler.cs" />
     <Compile Include="NormalPointsHandler.cs" />
+    <Compile Include="SameColorDiceComparer.cs" />
     <Compile Include="SameColorHandler.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
