@@ -27,6 +27,10 @@ namespace SibalaTDD
                 }
                 if (x.Type == DiceType.NormalPoints)
                 {
+                    if (x.Points == y.Points)
+                    {
+                        return x.MaxPoint - y.MaxPoint;
+                    }
                     return x.Points - y.Points;
                 }
                 return 0;
