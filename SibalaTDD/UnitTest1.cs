@@ -5,14 +5,36 @@ namespace SibalaTDD
     [TestClass]
     public class DiceTests
     {
+        private Dice _dice;
+
         [TestMethod]
         public void sameColor()
         {
-            Dice dice = new Dice(new int[] { 2, 2, 2, 2 });
-            Assert.AreEqual(2, dice.Points);
-            Assert.AreEqual(2, dice.MaxPoint);
-            Assert.AreEqual(DiceType.SameColor, dice.Type);
-            Assert.AreEqual("same color", dice.Output);
+            _dice = new Dice(new int[] { 2, 2, 2, 2 });
+            PointsShouldBe(2);
+            MaxPointShouldBe(2);
+            TypeShouldBe(DiceType.SameColor);
+            OutputShouldBe("same color");
+        }
+
+        private void OutputShouldBe(string expected)
+        {
+            Assert.AreEqual(expected, _dice.Output);
+        }
+
+        private void TypeShouldBe(DiceType expected)
+        {
+            Assert.AreEqual(expected, _dice.Type);
+        }
+
+        private void MaxPointShouldBe(int expected)
+        {
+            Assert.AreEqual(expected, _dice.MaxPoint);
+        }
+
+        private void PointsShouldBe(int expected)
+        {
+            Assert.AreEqual(expected, _dice.Points);
         }
     }
 }
