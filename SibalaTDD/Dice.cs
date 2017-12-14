@@ -20,9 +20,10 @@ namespace SibalaTDD
         private void InitializeByStates()
         {
             var maxCountOfSamePoints = _dices.GroupBy(x => x).Max(x => x.Count());
+
             if (maxCountOfSamePoints == 1 || maxCountOfSamePoints == 3)
             {
-                SetResultWhenNoPoints();
+                new NoPointsHandler(this).SetResultWhenNoPoints();
                 return;
             }
             else if (maxCountOfSamePoints == 4)
@@ -68,14 +69,6 @@ namespace SibalaTDD
             return _dices.Where(x => x != ignorePoint);
         }
 
-        private void SetResultWhenNoPoints()
-        {
-            this._points = 0;
-            this._maxPoint = 0;
-            this._diceType = DiceType.NoPoints;
-            this._output = "no points";
-        }
-
         private void SetResultWhenSameColor()
         {
             this._points = _dices.First();
@@ -87,21 +80,25 @@ namespace SibalaTDD
         public int Points
         {
             get { return this._points; }
+            set { this._points = value; }
         }
 
         public int MaxPoint
         {
             get { return this._maxPoint; }
+            set { this._maxPoint = value; }
         }
 
         public DiceType Type
         {
             get { return this._diceType; }
+            set { this._diceType = value; }
         }
 
         public string Output
         {
             get { return this._output; }
+            set { this._output = value; }
         }
     }
 }

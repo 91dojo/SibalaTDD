@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Dice.cs" />
     <Compile Include="DiceType.cs" />
+    <Compile Include="NoPointsHandler.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
