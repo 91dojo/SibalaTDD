@@ -20,7 +20,7 @@ namespace SibalaTDD
         private void InitializeByStates()
         {
             var maxCountOfSamePoints = _dices.GroupBy(x => x).Max(x => x.Count());
-            if (maxCountOfSamePoints == 1)
+            if (maxCountOfSamePoints == 1 || maxCountOfSamePoints == 3)
             {
                 SetResultWhenNoPoints();
                 return;
