@@ -25,6 +25,10 @@ namespace SibalaTDD
                     };
                     return sameColorWeightLookup[x.Points] - sameColorWeightLookup[y.Points];
                 }
+                if (x.Type == DiceType.NormalPoints)
+                {
+                    return x.Points - y.Points;
+                }
                 return 0;
             }
         }
