@@ -25,7 +25,31 @@ namespace SibalaTDD
                 SetResultWhenNoPoints();
                 return;
             }
-            SetResultWhenSameColor();
+            else if (maxCountOfSamePoints == 4)
+            {
+                SetResultWhenSameColor();
+                return;
+            }
+
+            SetResultWhenNormalPoints();
+        }
+
+        private void SetResultWhenNormalPoints()
+        {
+            this._diceType = DiceType.NormalPoints;
+            var points = GetNormalPointsDices();
+            this._points = points.Sum();
+            this._maxPoint = points.Max();
+            this._output = $"{this._points} points";
+        }
+
+        private IEnumerable<int> GetNormalPointsDices()
+        {
+            var ignorePoint = _dices.GroupBy(x => x)
+                .Where(x => x.Count() == 2)
+                .Min(x => x.Key);
+
+            return _dices.Where(x => x != ignorePoint);
         }
 
         private void SetResultWhenNoPoints()
