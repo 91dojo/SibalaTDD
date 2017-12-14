@@ -40,7 +40,14 @@ namespace SibalaTDD
             var points = GetNormalPointsDices();
             this._points = points.Sum();
             this._maxPoint = points.Max();
-            this._output = $"{this._points} points";
+            if (_points == 3)
+            {
+                this._output = "BG";
+            }
+            else
+            {
+                this._output = $"{this._points} points";
+            }
         }
 
         private IEnumerable<int> GetNormalPointsDices()
