@@ -32,41 +32,7 @@ namespace SibalaTDD
                 return;
             }
 
-            SetResultWhenNormalPoints();
-        }
-
-        private void SetResultWhenNormalPoints()
-        {
-            var points = GetNormalPointsDices();
-
-            this._diceType = DiceType.NormalPoints;
-            this._points = points.Sum();
-            this._maxPoint = points.Max();
-            this._output = GetOutput();
-        }
-
-        private string GetOutput()
-        {
-            Dictionary<int, string> specialOutput = new Dictionary<int, string>()
-            {
-                {3,"BG" },
-                {12,"Sibala" },
-            };
-            return IsSpecialOutput(specialOutput) ? specialOutput[_points] : $"{this._points} points";
-        }
-
-        private bool IsSpecialOutput(Dictionary<int, string> specialOutput)
-        {
-            return specialOutput.ContainsKey(_points);
-        }
-
-        private IEnumerable<int> GetNormalPointsDices()
-        {
-            var ignorePoint = _dices.GroupBy(x => x)
-                .Where(x => x.Count() == 2)
-                .Min(x => x.Key);
-
-            return _dices.Where(x => x != ignorePoint);
+            new NormalPointsHandler(this).SetResultWhenNormalPoints();
         }
 
         public int Points
