@@ -20,13 +20,8 @@ namespace SibalaTDD
                 {
                     return new NormalPointsDiceComparer().Compare(x, y);
                 }
-                return CompareWhenNoPoints(x, y);
+                return new NoPointsDiceComparer().Compare(x, y);
             }
-        }
-
-        private static int CompareWhenNoPoints(Dice dice1, Dice dice)
-        {
-            return 0;
         }
     }
 }

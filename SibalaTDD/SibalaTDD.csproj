@@ -53,6 +53,7 @@
     <Compile Include="DiceComparerTests.cs" />
     <Compile Include="DiceType.cs" />
     <Compile Include="IDiceHandler.cs" />
+    <Compile Include="NoPointsDiceComparer.cs" />
     <Compile Include="NoPointsHandler.cs" />
     <Compile Include="NormalPointsDiceComparer.cs" />
     <Compile Include="NormalPointsHandler.cs" />
