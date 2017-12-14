@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dice.cs" />
+    <Compile Include="DiceComparer.cs" />
+    <Compile Include="DiceComparerTests.cs" />
     <Compile Include="DiceType.cs" />
     <Compile Include="IDiceHandler.cs" />
     <Compile Include="NoPointsHandler.cs" />
