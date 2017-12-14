@@ -6,6 +6,10 @@ namespace SibalaTDD
     {
         public int Compare(Dice x, Dice y)
         {
+            if (x.Type!= y.Type)
+            {
+                return x.Type - y.Type;
+            }
             return 0;
         }
     }

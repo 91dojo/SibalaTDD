@@ -2,8 +2,8 @@
 {
     public enum DiceType
     {
-        SameColor,
-        NoPoints,
-        NormalPoints
+        SameColor = 2,
+        NoPoints = 0,
+        NormalPoints = 1
     }
 }
