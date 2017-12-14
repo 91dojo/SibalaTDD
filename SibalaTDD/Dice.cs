@@ -36,17 +36,22 @@ namespace SibalaTDD
 
         private void SetResultWhenNormalPoints()
         {
-            this._diceType = DiceType.NormalPoints;
             var points = GetNormalPointsDices();
+
+            this._diceType = DiceType.NormalPoints;
             this._points = points.Sum();
             this._maxPoint = points.Max();
+            this._output = GetOutput();
+        }
 
-            var specialOutput = new Dictionary<int, string>()
+        private string GetOutput()
+        {
+            Dictionary<int, string> specialOutput = new Dictionary<int, string>()
             {
                 {3,"BG" },
+                {12,"Sibala" },
             };
-
-            this._output = IsSpecialOutput(specialOutput) ? specialOutput[_points] : $"{this._points} points";
+            return IsSpecialOutput(specialOutput) ? specialOutput[_points] : $"{this._points} points";
         }
 
         private bool IsSpecialOutput(Dictionary<int, string> specialOutput)
