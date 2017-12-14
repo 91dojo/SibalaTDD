@@ -4,7 +4,7 @@ namespace SibalaTDD
 {
     public class SameColorDiceComparer
     {
-        public  int CompareWhenSameColor(Dice x, Dice y)
+        public  int Compare(Dice x, Dice y)
         {
             var sameColorWeightLookup = new Dictionary<int, int>()
             {

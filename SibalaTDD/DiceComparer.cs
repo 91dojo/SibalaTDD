@@ -14,11 +14,11 @@ namespace SibalaTDD
             {
                 if (x.Type == DiceType.SameColor)
                 {
-                    return new SameColorDiceComparer().CompareWhenSameColor(x, y);
+                    return new SameColorDiceComparer().Compare(x, y);
                 }
                 if (x.Type == DiceType.NormalPoints)
                 {
-                    return CompareWhenNormalPoints(x, y);
+                    return new NormalPointsDiceComparer().Compare(x, y);
                 }
                 return CompareWhenNoPoints(x, y);
             }
@@ -27,15 +27,6 @@ namespace SibalaTDD
         private static int CompareWhenNoPoints(Dice dice1, Dice dice)
         {
             return 0;
-        }
-
-        private static int CompareWhenNormalPoints(Dice x, Dice y)
-        {
-            if (x.Points == y.Points)
-            {
-                return x.MaxPoint - y.MaxPoint;
-            }
-            return x.Points - y.Points;
         }
     }
 }
