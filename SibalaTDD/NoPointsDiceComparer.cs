@@ -1,6 +1,6 @@
 ﻿namespace SibalaTDD
 {
-    public class NoPointsDiceComparer
+    public class NoPointsDiceComparer : IDiceComparer
     {
         public int Compare(Dice dice1, Dice dice)
         {

@@ -2,7 +2,7 @@
 
 namespace SibalaTDD
 {
-    public class SameColorDiceComparer
+    public class SameColorDiceComparer : IDiceComparer
     {
         public  int Compare(Dice x, Dice y)
         {

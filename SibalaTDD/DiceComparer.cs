@@ -6,22 +6,33 @@ namespace SibalaTDD
     {
         public int Compare(Dice x, Dice y)
         {
-            if (x.Type != y.Type)
-            {
-                return x.Type - y.Type;
-            }
-            else
-            {
-                if (x.Type == DiceType.SameColor)
-                {
-                    return new SameColorDiceComparer().Compare(x, y);
-                }
-                if (x.Type == DiceType.NormalPoints)
-                {
-                    return new NormalPointsDiceComparer().Compare(x, y);
-                }
-                return new NoPointsDiceComparer().Compare(x, y);
-            }
+            return IsSameType(x, y) ? GetComparer(x.Type).Compare(x, y) : CompareWhenDifferentType(x, y);
         }
+
+        private static bool IsSameType(Dice x, Dice y)
+        {
+            return x.Type == y.Type;
+        }
+
+        private static int CompareWhenDifferentType(Dice x, Dice y)
+        {
+            return x.Type - y.Type;
+        }
+
+        private static IDiceComparer GetComparer(DiceType diceType)
+        {
+            var diceComparerLookup = new Dictionary<DiceType, IDiceComparer>()
+            {
+                {DiceType.SameColor, new SameColorDiceComparer()},
+                {DiceType.NoPoints, new NoPointsDiceComparer()},
+                {DiceType.NormalPoints, new NormalPointsDiceComparer()}
+            };
+            return diceComparerLookup[diceType];
+        }
+    }
+
+    public interface IDiceComparer
+    {
+        int Compare(Dice x, Dice y);
     }
 }
