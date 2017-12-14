@@ -8,11 +8,12 @@ namespace SibalaTDD
         [TestMethod]
         public void NoPoints_1432_equal_to_6534()
         {
-            var x = new Dice(new[] { 1, 4, 3, 2 });
-            var y = new Dice(new[] { 6, 5, 3, 4 });
+            FirstShouldBeEqualToSecond(new Dice(new[] { 1, 4, 3, 2 }), new Dice(new[] { 6, 5, 3, 4 }));
+        }
 
-            var comparer = new DiceComparer();
-            Assert.IsTrue(comparer.Compare(x, y) == 0);
+        private static void FirstShouldBeEqualToSecond(Dice first, Dice second)
+        {
+            Assert.IsTrue(new DiceComparer().Compare(first, second) == 0);
         }
     }
 }
