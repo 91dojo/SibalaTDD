@@ -40,14 +40,18 @@ namespace SibalaTDD
             var points = GetNormalPointsDices();
             this._points = points.Sum();
             this._maxPoint = points.Max();
-            if (_points == 3)
+
+            var specialOutput = new Dictionary<int, string>()
             {
-                this._output = "BG";
-            }
-            else
-            {
-                this._output = $"{this._points} points";
-            }
+                {3,"BG" },
+            };
+
+            this._output = IsSpecialOutput(specialOutput) ? specialOutput[_points] : $"{this._points} points";
+        }
+
+        private bool IsSpecialOutput(Dictionary<int, string> specialOutput)
+        {
+            return specialOutput.ContainsKey(_points);
         }
 
         private IEnumerable<int> GetNormalPointsDices()
