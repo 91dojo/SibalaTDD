@@ -22,13 +22,18 @@ namespace SibalaTDD
             var maxCountOfSamePoints = _dices.GroupBy(x => x).Max(x => x.Count());
             if (maxCountOfSamePoints == 1)
             {
-                this._points = 0;
-                this._maxPoint = 0;
-                this._diceType = DiceType.NoPoints;
-                this._output = "no points";
+                SetResultWhenNoPoints();
                 return;
             }
             SetResultWhenSameColor();
+        }
+
+        private void SetResultWhenNoPoints()
+        {
+            this._points = 0;
+            this._maxPoint = 0;
+            this._diceType = DiceType.NoPoints;
+            this._output = "no points";
         }
 
         private void SetResultWhenSameColor()

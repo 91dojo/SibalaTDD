@@ -27,6 +27,16 @@ namespace SibalaTDD
             OutputShouldBe("no points");
         }
 
+        [TestMethod]
+        public void noPoints_4442_3DicesWithSamePoint()
+        {
+            _dice = new Dice(new int[] { 4, 4, 4, 2 });
+            PointsShouldBe(0);
+            MaxPointShouldBe(0);
+            TypeShouldBe(DiceType.NoPoints);
+            OutputShouldBe("no points");
+        }
+
         private void OutputShouldBe(string expected)
         {
             Assert.AreEqual(expected, _dice.Output);
