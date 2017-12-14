@@ -14,27 +14,42 @@ namespace SibalaTDD
             {
                 if (x.Type == DiceType.SameColor)
                 {
-                    var sameColorWeightLookup = new Dictionary<int, int>()
-                    {
-                        {1,6 },
-                        {4,5 },
-                        {6,4 },
-                        {5,3 },
-                        {3,2 },
-                        {2,1 },
-                    };
-                    return sameColorWeightLookup[x.Points] - sameColorWeightLookup[y.Points];
+                    return CompareWhenSameColor(x, y);
                 }
                 if (x.Type == DiceType.NormalPoints)
                 {
-                    if (x.Points == y.Points)
-                    {
-                        return x.MaxPoint - y.MaxPoint;
-                    }
-                    return x.Points - y.Points;
+                    return CompareWhenNormalPoints(x, y);
                 }
-                return 0;
+                return CompareWhenNoPoints();
             }
+        }
+
+        private static int CompareWhenNoPoints()
+        {
+            return 0;
+        }
+
+        private static int CompareWhenSameColor(Dice x, Dice y)
+        {
+            var sameColorWeightLookup = new Dictionary<int, int>()
+            {
+                {1, 6},
+                {4, 5},
+                {6, 4},
+                {5, 3},
+                {3, 2},
+                {2, 1},
+            };
+            return sameColorWeightLookup[x.Points] - sameColorWeightLookup[y.Points];
+        }
+
+        private static int CompareWhenNormalPoints(Dice x, Dice y)
+        {
+            if (x.Points == y.Points)
+            {
+                return x.MaxPoint - y.MaxPoint;
+            }
+            return x.Points - y.Points;
         }
     }
 }
