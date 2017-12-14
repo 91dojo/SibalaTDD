@@ -35,6 +35,12 @@ namespace SibalaTDD
             FirstShouldBeSmallerThanSecond(new Dice(new[] { 6, 6, 6, 6 }), new Dice(new[] { 4, 4, 4, 4 }));
         }
 
+        [TestMethod]
+        public void NormalPoints_different_points_6632_smaller_2254()
+        {
+            FirstShouldBeSmallerThanSecond(new Dice(new[] { 6, 6, 3, 2 }), new Dice(new[] { 2, 2, 5, 4 }));
+        }
+
         private void FirstShouldBeSmallerThanSecond(Dice x, Dice y)
         {
             Assert.IsTrue(new DiceComparer().Compare(x, y) < 0);
