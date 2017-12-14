@@ -5,7 +5,7 @@ namespace SibalaTDD
 {
     public class Dice
     {
-        private List<int> _dices;
+        public List<int> _dices;
         private int _points;
         private int _maxPoint;
         private DiceType _diceType;
@@ -28,7 +28,7 @@ namespace SibalaTDD
             }
             else if (maxCountOfSamePoints == 4)
             {
-                SetResultWhenSameColor();
+                new SameColorHandler(this).SetResultWhenSameColor();
                 return;
             }
 
@@ -67,14 +67,6 @@ namespace SibalaTDD
                 .Min(x => x.Key);
 
             return _dices.Where(x => x != ignorePoint);
-        }
-
-        private void SetResultWhenSameColor()
-        {
-            this._points = _dices.First();
-            this._maxPoint = _dices.First();
-            this._diceType = DiceType.SameColor;
-            this._output = "same color";
         }
 
         public int Points
