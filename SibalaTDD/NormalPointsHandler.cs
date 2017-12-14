@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SibalaTDD
 {
-    public class NormalPointsHandler
+    public class NormalPointsHandler : IDiceHandler
     {
         private Dice _dice;
 
@@ -12,7 +12,7 @@ namespace SibalaTDD
             _dice = dice;
         }
 
-        public void SetResultWhenNormalPoints()
+        public void SetResult()
         {
             var points = this.GetNormalPointsDices();
 

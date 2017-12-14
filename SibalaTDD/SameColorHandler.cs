@@ -2,7 +2,7 @@
 
 namespace SibalaTDD
 {
-    public class SameColorHandler
+    public class SameColorHandler : IDiceHandler
     {
         private Dice _dice;
 
@@ -11,7 +11,7 @@ namespace SibalaTDD
             _dice = dice;
         }
 
-        public void SetResultWhenSameColor()
+        public void SetResult()
         {
             _dice.Points = _dice._dices.First();
             _dice.MaxPoint = _dice._dices.First();

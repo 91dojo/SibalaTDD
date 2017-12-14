@@ -21,18 +21,21 @@ namespace SibalaTDD
         {
             var maxCountOfSamePoints = _dices.GroupBy(x => x).Max(x => x.Count());
 
+            GetDiceHandler(maxCountOfSamePoints).SetResult();
+        }
+
+        private IDiceHandler GetDiceHandler(int maxCountOfSamePoints)
+        {
             if (maxCountOfSamePoints == 1 || maxCountOfSamePoints == 3)
             {
-                new NoPointsHandler(this).SetResultWhenNoPoints();
-                return;
+                return new NoPointsHandler(this);
             }
             else if (maxCountOfSamePoints == 4)
             {
-                new SameColorHandler(this).SetResultWhenSameColor();
-                return;
+                return new SameColorHandler(this);
             }
 
-            new NormalPointsHandler(this).SetResultWhenNormalPoints();
+            return new NormalPointsHandler(this);
         }
 
         public int Points

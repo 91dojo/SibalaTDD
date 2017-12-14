@@ -1,6 +1,6 @@
 ﻿namespace SibalaTDD
 {
-    public class NoPointsHandler
+    public class NoPointsHandler : IDiceHandler
     {
         private Dice _dice;
 
@@ -9,7 +9,7 @@
             _dice = dice;
         }
 
-        public void SetResultWhenNoPoints()
+        public void SetResult()
         {
             _dice.Points = 0;
             _dice.MaxPoint = 0;
